@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/service', [App\Http\Controllers\ServiceController::class, 'index'])->name('service');
 
 Auth::routes();
 
