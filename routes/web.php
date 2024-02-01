@@ -24,3 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
+
+Auth::routes();
+Route::delete('/destroy/{id}', [App\Http\Controllers\HomeController::class, 'destroy'])->name('destroy');
+
+Auth::routes();
+Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit');
+Auth::routes();
+Route::put('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update');

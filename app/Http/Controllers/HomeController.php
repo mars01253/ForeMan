@@ -50,4 +50,37 @@ class HomeController extends Controller
         $info = Service::orderBy('created_at' , 'desc')->get();
         return view('home', ['data'=>$data , 'service'=>$info]);
     }
+    public function destroy($id){
+
+        $row = Service::find($id);
+        if($row){
+            $row->delete();
+        }
+        $data = Category::all();
+        $info = Service::orderBy('created_at' , 'desc')->get();
+        return view('home', ['data'=>$data , 'service'=>$info]);
+    }
+    public function edit($id){
+        $data = Category::all();
+        $info = Service::find($id);
+        return view('edit', ['data'=>$data , 'service'=>$info]);
+    }
+    
+    public function update($id){
+        $name = request()->name;
+        $description = request()->description;
+        $Category = request()->Category;
+        $user =  request()->id ; 
+        $price =  request()->price ; 
+        $insert = new Service ;
+        $insert->name = $name ; 
+        $insert->description = $description ; 
+        $insert->category_id = $Category ; 
+        $insert->user_id = $user ; 
+        $insert->price = $price ; 
+        $insert->save();
+        $data = Category::all();
+        $info = Service::orderBy('created_at' , 'desc')->get();
+        return view('home', ['data'=>$data , 'service'=>$info]);
+    }
 }

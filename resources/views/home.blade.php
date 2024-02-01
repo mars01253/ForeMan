@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>ForeMan</title>
 </head>
 <body>
   
@@ -84,10 +84,19 @@
                   </div>
                   <h3 class="font-black text-gray-800 md:text-3xl text-xl">{{$info->name}}</h3>
                   <p class="md:text-lg text-gray-500 text-base">{{$info->description}}</p>
-                  <div class="w-[80%] flex items-center justify-between"><a href="" class=" rounded-xl p-2  bg-red-200">Delete</a><a href="" class="nav-link">Edit</a></div>
+                  <div class="w-[80%] flex items-center justify-between">
+                    <form action="{{ route('destroy', [ $info->id]) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input type="submit" value="Delete" class=" rounded-xl p-2 no-underline text-black bg-red-200">
+                  </form>
+                <a href="{{ route('edit', [ $info->id]) }}"  class=" rounded-xl p-2 no-underline text-black bg-green-200">edit</a>
+                  </div>
               </div>
               
           </div>
+          
+
   </div>
   @endforeach
   </div>
