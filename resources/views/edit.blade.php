@@ -19,8 +19,12 @@
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">ForeMan</span>
                 </a>
                 <div class="flex items-center lg:order-2">
-                        <a href="{{ route('logout') }}" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Log out</a>
-                </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">
+                          @csrf
+                          <input type="submit" value="Logout">
+                      </form>
+                
+                      </div>
                 <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
@@ -43,7 +47,7 @@
               <p>Please fill out all the fields.</p>
             </div>
   
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-4">
               <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                 <div class="md:col-span-5">
                   <label for="full_name">Service Name :</label>
